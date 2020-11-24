@@ -3,7 +3,8 @@ export default {
     'pages/index/index',
     'pages/demo6/index',
     'pages/demo7/index',
-    'pages/demo8/index'
+    'pages/demo8/index',
+    'pages/demo9/index',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -28,6 +29,13 @@ export default {
       'selectedIconPath': 'resource/tab_bar_no_select_index.png',
       pagePath: 'pages/demo8/index',
       text: '地图',
-    }]
+    },
+      {
+        'iconPath': 'resource/tab_bar_index.png',
+        'selectedIconPath': 'resource/tab_bar_no_select_index.png',
+        pagePath: 'pages/demo9/index',
+        text: '容器',
+      }
+    ]
   }
 }
