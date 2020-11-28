@@ -5,6 +5,7 @@ export default {
     'pages/demo7/index',
     'pages/demo8/index',
     'pages/demo9/index',
+    'pages/demo10/index',
   ],
   window: {
     backgroundTextStyle: 'light',

@@ -1,10 +1,58 @@
-import {View, SwiperItem, ScrollView, Swiper,MovableArea, MovableView} from "@tarojs/components";
+import {
+  View,
+  SwiperItem,
+  ScrollView,
+  Swiper,
+  CoverView,
+  CoverImage,
+  Icon,
+  Text,
+  Button,
+  Progress,
+  RichText,
+  // MatchMedia,
+  // MovableArea,
+  // MovableView,
+} from "@tarojs/components";
 import React, {Component} from "react";
 
 class ViewContainer extends Component {
-  // constructor() {
-  //   super(...arguments)
-  // }
+
+  state = {
+    contents: [],
+    contentsLen: 0,
+    nodes: [{
+      name: 'div', attrs: {
+        class: 'div_class',
+        style: 'line-height:60px;color:red',
+      },
+      children: [{
+        type: 'text',
+        text: 'Hello World',
+      },]
+    },],
+  }
+  add = () => {
+    this.setState(prev => {
+      const cot = prev.contents.slice();
+      cot.push({text: 'hello word'});
+      return {
+        contents: cot,
+        contentsLen: cot.length
+      }
+    })
+  }
+  remove = () => {
+    this.setState(prev => {
+      const cot = prev.contents.slice();
+      cot.pop();
+      return {
+        contents: cot,
+        contentLen: cot.length,
+      }
+    });
+  }
+
   onScrollToUpper() {
   }
 
@@ -68,9 +116,33 @@ class ViewContainer extends Component {
             <View className='demo-text-3'>SwiperItem3</View>
           </SwiperItem>
         </Swiper>
-        <MovableArea style='height:200px;width:200px;background:red'>
-          <MovableView style='height:50px;width:50px;background:blue;'>旅行的意义</MovableView>
-        </MovableArea>
+        <CoverView className='play'>CoverView</CoverView>
+        <CoverImage className='img' src=''>CoverImage</CoverImage>
+        <Icon size='60' type='success'></Icon>
+        <View className='container'>
+          {/*{*/}
+          {/*  this.state.contents.map((item, index) => {*/}
+          {/*    <Text key={index}>{item.text}<Text>*/}
+          {/*  })}*/}
+          {this.state.contents.map((item, index) => (
+            <Text key={index}>{item.text}</Text>
+          ))}
+          <Button className='btn-max-w button_style' type='default' onClick={this.add}>add line</Button>
+          <Button className='btn-max-w button_style' type='default' onClick={this.remove}
+                  disabled={this.state.contentsLen ? false : true}>remove line</Button>
+        </View>
+        <View className='components-page'>
+          <Progress percent={20} showInfo strokeWidth={2} />
+          <Progress percent={20} strokeWidth={2} active />
+          <Progress percent={20} strokeWidth={2} active activeColor='blue' />
+        </View>
+        <RichText nodes={this.state.nodes} />
+        {/*<MovableArea style='height:200px;width:200px;background:red'>*/}
+        {/*  <MovableView style='height:50px;width:50px;background:blue;'>旅行的意义</MovableView>*/}
+        {/*</MovableArea>*/}
+        {/*  <MatchMedia min-width='300' max-width='600'>*/}
+        {/*    <View>当页面宽度在300~600px之间时展示</View>*/}
+        {/*  </MatchMedia>*/}
       </View>
 
     );

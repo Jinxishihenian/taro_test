@@ -21,7 +21,8 @@ class App extends Component {
       'pages/demo2/index',
       'pages/demo6/index',
       'pages/demo7/index',
-      'pages/demo8/index'
+      'pages/demo8/index',
+      'pages/demo10/index'
     ]
   }
 

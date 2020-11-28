@@ -28,7 +28,7 @@ export default class Index extends Component {
   jumpdemo() {
     console.log("我进行了点击");
     Taro.navigateTo({
-      url: '/pages/demo6/index'
+      url: '/pages/demo10/index'
     })
   }
 
